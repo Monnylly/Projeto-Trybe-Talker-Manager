@@ -1,16 +1,20 @@
 const fs = require('fs');
 
-const buscaArquivoJson = async () => {
-  const arquivo = await fs.promises.readFile('talker.json');
-  return JSON.parse(arquivo);
+const palestrante = (_req, res) => {
+  const respArquivo = fs.readFileSync('./talker.json', 'utf-8');
+  const palestranteArray = JSON.parse(respArquivo);
+  if (palestranteArray.length === 0) {
+    return res.status(200).json([]);
+  }
+  res.status(200).json(palestranteArray);
 };
 
-const idPersona = async (req, res) => {
-  const { id: talkerId } = req.params;
-  const pessoas = await buscaArquivoJson();
-  const pessoaId = pessoas.find(({ id }) => id === +talkerId);
-  if (pessoaId) return res.status(200).json(pessoaId);
-  return res.status(404).json({ message: 'Pessoa palestrante não encontrada' }); 
-};
+module.exports = palestrante;
 
-module.exports = idPersona;
+// app.get('/talker', (_req, res) => {
+//   const palestrante = fs.readFileSync('./talker.json', 'utf-8');
+//   const palestranteArray = JSON.parse(palestrante);
+//   if (palestranteArray.length === 0) {
+//     return res.status(200).json([]);
+//   }
+//   res.status(200).json(palestranteArray)

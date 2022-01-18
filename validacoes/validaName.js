@@ -1,4 +1,4 @@
-const validaName = (req, res, next) => {
+const validationName = (req, res, next) => {
   const { name } = req.body;
 
   if (!name) {
@@ -12,4 +12,4 @@ const validaName = (req, res, next) => {
   next();
 };
 
-module.exports = validaName;
+module.exports = validationName;

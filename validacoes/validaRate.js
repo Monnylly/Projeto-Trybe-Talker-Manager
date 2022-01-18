@@ -1,4 +1,4 @@
-const validaRate = (req, res, next) => {
+const validationRate = (req, res, next) => {
   const { talk: { rate } } = req.body;
 
   if (typeof rate !== 'number' || rate < 1 || rate > 5) {
@@ -8,4 +8,4 @@ const validaRate = (req, res, next) => {
   next();
 };
 
-module.exports = validaRate;
+module.exports = validationRate;

@@ -14,6 +14,7 @@ const autenticToken = require('./validacoes/autenticToken');
 const newSpeaker = require('./validacoes/newSpeacker');
 const deleteSpeacker = require('./deleteSpeacker');
 const editTalker = require('./updateTalker');
+const resultSearch = require('./searchTalker');
 
 const app = express();
 app.use(bodyParser.json());
@@ -51,6 +52,8 @@ validationRate,
 editTalker);
 
 app.delete('/talker/:id', autenticToken, deleteSpeacker);
+
+app.get('/talker/search', autenticToken, resultSearch);
 
 app.listen(PORT, () => {
   console.log('Online');

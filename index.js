@@ -13,6 +13,7 @@ const validationTalk = require('./validacoes/validaTalk');
 const autenticToken = require('./validacoes/autenticToken');
 const newSpeaker = require('./validacoes/newSpeacker');
 const deleteSpeacker = require('./deleteSpeacker');
+const editTalker = require('./updateTalker');
 
 const app = express();
 app.use(bodyParser.json());
@@ -39,6 +40,15 @@ app.post('/talker',
   validationWatchedAt, 
   validationRate,
   newSpeaker);
+
+app.put('/talker:id', 
+autenticToken, 
+validationName, 
+validationAge,  
+validationTalk,
+validationWatchedAt, 
+validationRate,
+editTalker);
 
 app.delete('/talker/:id', autenticToken, deleteSpeacker);
 

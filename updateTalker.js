@@ -16,7 +16,7 @@ const editTalker = async (req, res) => {
   const talkerFile = await getTalker();
   const editedFile = { id: +id, ...talker };
 
-  let newFile = talkerFile.filter((t) => +t.id !== +id);
+  let newFile = talkerFile.filter((talk) => +talk.id !== +id);
   newFile = [...newFile, editedFile];
 
   await upTalker(newFile);

@@ -41,7 +41,7 @@ app.post('/talker',
   validationRate,
   newSpeaker);
 
-app.put('/talker:id', 
+app.put('/talker/:id', 
 autenticToken, 
 validationName, 
 validationAge,  

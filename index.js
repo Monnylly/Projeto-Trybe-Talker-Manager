@@ -29,6 +29,8 @@ app.get('/', (_request, response) => {
 
 app.get('/talker', palestrante);
 
+app.get('/talker/search', autenticToken, resultSearch);
+
 app.get('/talker/:id', idPersona);
 
 app.post('/login', checaEmail, checaPassword, loginAutentic);
@@ -52,8 +54,6 @@ validationRate,
 editTalker);
 
 app.delete('/talker/:id', autenticToken, deleteSpeacker);
-
-app.get('/talker/search', autenticToken, resultSearch);
 
 app.listen(PORT, () => {
   console.log('Online');

@@ -12,7 +12,6 @@ const resultSearch = async (req, res) => {
   const filter = searchRes.filter((s) => s.name.includes(key));
   
   return res.status(200).json(filter);
-
 };
 
 module.exports = resultSearch;

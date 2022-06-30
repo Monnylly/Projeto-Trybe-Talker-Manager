@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Projeto-Trybe-Talker-Manager
+  annotations:
+    github.com/project-slug: Monnylly/Projeto-Trybe-Talker-Manager
+spec:
+  type: other
+  lifecycle: unknown
+  owner: test_backstage
